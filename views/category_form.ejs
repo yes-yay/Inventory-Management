@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+    <h1>Category Form</h1>
+    <form action="" method="POST">
+        <% if (category) { %>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" value="<%= category.name %>" required>
+            </div>
+
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required><%= category.description %></textarea>
+            </div>
+        <% } else { %>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+        <% } %>
+      
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

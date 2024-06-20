@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= category.name %></h1>
+  <p><%= category.description %></p>
+
+  <h2>Items in this category:</h2>
+  <ul>
+    <% category_items.forEach(function(item) { %>
+      <li><a href="/items/<%= item._id %>"><%= item.name %></a></li>
+    <% }) %>
+  </ul>
+
+  <form action="/categories/<%= category._id %>/delete" method="POST">
+    <button type="submit">Delete Category</button>
+  </form>
+</body>
+</html>

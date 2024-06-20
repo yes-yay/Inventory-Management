@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  <form action="" method="POST">
+    <div>
+      <label for="name">Name:</label>
+      <% if (item) { %>
+        <input type="text" id="name" name="name" value="<%= item.name %>" required>
+      <% } else { %>
+        <input type="text" id="name" name="name" required>
+      <% } %>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <% if (item) { %>
+        <textarea id="description" name="description" required><%= item.description %></textarea>
+      <% } else { %>
+        <textarea id="description" name="description" required></textarea>
+      <% } %>
+    </div>
+    <div>
+      <label for="category">Category:</label>
+      <select id="category" name="category" required>
+        <% categories.forEach(function(category) { %>
+          <% if (item && item.category.equals(category._id)) { %>
+            <option value="<%= category._id %>" selected><%= category.name %></option>
+          <% } else { %>
+            <option value="<%= category._id %>"><%= category.name %></option>
+          <% } %>
+        <% }) %>
+      </select>
+    </div>
+    <div>
+      <label for="price">Price:</label>
+      <% if (item) { %>
+        <input type="number" id="price" name="price" value="<%= item.price %>" required>
+      <% } else { %>
+        <input type="number" id="price" name="price" required>
+      <% } %>
+    </div>
+    <div>
+      <label for="number_in_stock">Number in Stock:</label>
+      <% if (item) { %>
+        <input type="number" id="number_in_stock" name="number_in_stock" value="<%= item.number_in_stock %>" required>
+      <% } else { %>
+        <input type="number" id="number_in_stock" name="number_in_stock" required>
+      <% } %>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

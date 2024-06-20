@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= item.name %></h1>
+  <p><%= item.description %></p>
+  <p>Category: <a href="/categories/<%= item.category._id %>"><%= item.category.name %></a></p>
+  <p>Price: <%= item.price %></p>
+  <p>Number in stock: <%= item.number_in_stock %></p>
+
+  <form action="/items/<%= item._id %>/delete" method="POST">
+    <button type="submit">Delete Item</button>
+  </form>
+</body>
+</html>

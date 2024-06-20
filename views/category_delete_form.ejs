@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete Category</title>
+</head>
+<body>
+  <h1>Delete Category</h1>
+  <% if (typeof error !== 'undefined') { %>
+    <p style="color: red;">
+      <%= error %>
+    </p>
+    <% if (items_in_category && items_in_category.length > 0) { %>
+      <p>The following items are associated with this category. Please delete them first:</p>
+      <ul>
+        <% items_in_category.forEach(function(item) { %>
+          <li><%= item.name %></li>
+        <% }) %>
+      </ul>
+    <% } %>
+  <% } %>
+  <form action="/catalog/category/delete" method="POST">
+    <label for="category_name">Category Name:</label>
+    <input type="text" id="category_name" name="category_name" required>
+    <button type="submit">Delete</button>
+  </form>
+</body>
+</html>

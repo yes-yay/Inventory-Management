@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <h1>There are still items left in your selected category. Please delete them first to continue.</h1>
+        
+        <ul>
+            <% category_items.forEach(item => { %>
+                <li><a href="<%- item.url %>"><%- item.name %></a></li>
+            <% }) %>
+        </ul>
+    </body>
+</html>

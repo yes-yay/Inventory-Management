@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+</head>
+<body>
+  <h1><%= title %></h1>
+  <ul>
+    <% category_list.forEach(function(category) { %>
+      <li>
+        <a href="<%= category.url %>"><%= category.name %></a>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
