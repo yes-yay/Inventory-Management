@@ -11,7 +11,8 @@ var indexRouter = require('./routes/index');
 var app = express();
 
 const mongoose = require("mongoose");
-const mongoDB = 'mongodb+srv://admin:admin@cluster0.iolzk5i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
+const mongoDB =process.env.MONGODB_URI || 'mongodb+srv://admin:admin@cluster0.iolzk5i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
